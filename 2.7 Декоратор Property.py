@@ -56,21 +56,26 @@ class Bankaccount1:
             print('Сработал метод set_balance')
             self.__balance = value
 
-    # запишем в развернутом виде
+    # запишем в развернутом виде, сначала создадим объект класса property() 
     # my_balance = property()
+    
+    # обратимся к его методам по умолчанию
     # my_balance = my_balance.getter(get_balance)
-    # my_balance = my_balance.setter(set_balance)
-    # my_balance = my_balance.deleter(del_balance)
-
-    # Оптимизируем запись выше
-    my_balance = property(get_balance)
     # my_balance = my_balance.setter(set_balance)
     # my_balance = my_balance.deleter(del_balance)
 
 # создадим пользователя
 a = Bankaccount1('Иван', 100)
-print(a.my_balance)  # --> Сработал метод get_balance   100
 
+print(a.my_balance)  # --> 100 Сработал метод get_balance, потому что мы запросили выдачу значения
+print(a.my_balance = 500)   # --> 500 Сработал метод set_balance, потому что мы задали новое, а не вызвали
+
+# Если оптимизируем запись выше и сразу подадим геттер - нчиего не изменится
+#    my_balance = property(get_balance)
+#    my_balance = my_balance.setter(set_balance)
+#    my_balance = my_balance.deleter(del_balance)
+    
+    
 ''' На данный момент у нас образовалась двойная функциональность.
     Мы можем обращаться к методам и напрямую, и через свойства. 
     Используем запись через декораторы  '''
