@@ -200,8 +200,7 @@ class Bankaccount4:
             print('Сработал метод set_balance')
             self.__balance = value
 
-    my_balance = my_property_balance.setter(
-        set_balance)  # через сохраненное свойство вызываем метод setter и ему передаем функцию set_balance
+    my_balance = my_property_balance.setter(set_balance)  # через сохраненное свойство вызываем метод setter и ему передаем функцию set_balance
     # благодаря этой махинации, my_balance опять становится свойством
 
 
