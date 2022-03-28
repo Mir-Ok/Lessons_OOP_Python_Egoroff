@@ -1,9 +1,8 @@
 ''' Давайте создадим класс Registration, который поможет зарегистрировать пользователя с безопасным паролем '''
-
 from string import digits  # набор цифр в виде строки '0123456789'
 import string
 
-with open('../easy_passwords.txt') as f:
+with open('easy_passwords.txt') as f:
     my_set = list(f)
 
 class Registration:
@@ -77,6 +76,5 @@ class Registration:
             raise ValueError("Login must include at least one ' . '")
 
         self.__login = n_login
-
 
 s2 = Registration("fga", "asd12")

@@ -3,20 +3,26 @@ class Person:
     def __init__(self, name, surname, gender="male"):
         self.name = name
         self.surname = surname
-        self.__gender = gender
+        self.gender = gender
 
     @property
     def gender(self):
+        print('getter called')
         return self.__gender
 
     @gender.setter
     def gender(self, value):
-
-        if value == "female":
-            self.__gender = value
+        # print('setter called')
+        if value:
+            if value == 'female':
+                self.__gender = value
+            elif value == 'male':
+                self.__gender = value
+            else:
+                self.__gender = "male"
+                print('Не знаю, что вы имели ввиду? Пусть это будет мальчик!')
         else:
             self.__gender = "male"
-            return 'Не знаю, что вы имели ввиду? Пусть это будет мальчик!'
 
     def __str__(self):
         if self.__gender == "female":

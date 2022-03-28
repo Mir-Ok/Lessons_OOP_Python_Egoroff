@@ -24,22 +24,23 @@ class User:
 
     def __init__(self, login, password):
         self.login = login
-        self.password = password  # убрали __ для запуска сеттера при вводе
+        self.my_password = password  # self.my_password вместо self.__password, заменили имя атрибута названием свойства,
+                                     # чтобы при первом же вводе пароля сразу запустить проверку
         # добавим секретный параметр
         self.__secret = 'abracadabra'
 
     # создание геттера, теперь password - это свойство, а сам пароль защищен __password
     # при запросе ex.password мы обращаемся к свойству, а не к атрибуту, атрибут защищен
     @property
-    def password(self):
+    def my_password(self):
         print('getter called')
 
         # возвращаем защищенный атрибут нашего экземпляра
         return self.__password
 
     # создаем сеттер, который прежде чем устанавливать пароль, прогонит его через условия
-    @password.setter
-    def password(self, value):
+    @my_password.setter
+    def my_password(self, value):
         print('setter called')
         if not isinstance(value, str):
             raise TypeError('Пароль должен быть строкой')
@@ -70,7 +71,7 @@ class User:
 
 # p = User('abc', 123)  # TypeError: Пароль должен быть строкой   setter called
 
-p = User('abc', 'dgyf123')  # сработало, пароль установлен
+p = User('abc', 'fgfg123')  # сработало, пароль установлен
 
 
 
