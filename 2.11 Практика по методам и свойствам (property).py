@@ -26,11 +26,7 @@ class User:
         self.login = login
         self.my_password = password  # self.my_password вместо self.__password, заменили имя атрибута названием свойства,
                                      # чтобы при первом же вводе пароля сразу запустить проверку
-        # добавим секретный параметр
-        self.__secret = 'abracadabra'
 
-    # создание геттера, теперь password - это свойство, а сам пароль защищен __password
-    # при запросе ex.password мы обращаемся к свойству, а не к атрибуту, атрибут защищен
     @property
     def my_password(self):
         print('getter called')
@@ -72,6 +68,7 @@ class User:
 # p = User('abc', 123)  # TypeError: Пароль должен быть строкой   setter called
 
 p = User('abc', 'fgfg123')  # сработало, пароль установлен
+print(p.__dict__)
 
 
 

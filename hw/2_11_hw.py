@@ -78,3 +78,4 @@ class Registration:
         self.__login = n_login
 
 s2 = Registration("fga", "asd12")
+print(s2.__dict__)

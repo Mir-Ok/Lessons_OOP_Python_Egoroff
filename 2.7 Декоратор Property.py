@@ -239,7 +239,7 @@ class Bankaccount5:
     Можем вызывать текущее значение или вызывать новое, и еще можем добавить deleter '''
 
 
-class Bankaccount5:
+class Bankaccount6:
 
     def __init__(self, name, balance):
         self.name = name
